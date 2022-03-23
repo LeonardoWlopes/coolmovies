@@ -21,6 +21,7 @@ const Home: NextPage = () => {
       <S.RecomendedShow src="https://conexaopanvel.faccat.br/wp-content/uploads/2020/06/1_vHHBwcUFUaHWXntSnqKdCA.png" />
       <S.ListsContainer>
         <EpisodesList />
+        <EpisodesList />
       </S.ListsContainer>
     </S.Container>
   );
