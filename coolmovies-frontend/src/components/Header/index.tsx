@@ -8,7 +8,7 @@ import { Search, Notifications } from "@mui/icons-material";
 import Image from "next/image";
 
 //images
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 function Header() {
   return (

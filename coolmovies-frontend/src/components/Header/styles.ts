@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const Header = styled.header`
   width: 100%;
   height: 68px;
-  background-color: grey;
   display: flex;
   align-items: center;
   padding: 0px 56px;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
 
   div {
     display: flex;

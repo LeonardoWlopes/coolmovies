@@ -10,10 +10,20 @@ import {
 import type { NextPage } from "next";
 import { exampleActions, useAppDispatch, useAppSelector } from "../redux";
 
-const primary = "#1976d2";
+//components
+import EpisodesList from "../src/components/EpisodesList";
+
+import * as S from "../styles/home";
 
 const Home: NextPage = () => {
-  return <div></div>;
+  return (
+    <S.Container>
+      <S.RecomendedShow src="https://conexaopanvel.faccat.br/wp-content/uploads/2020/06/1_vHHBwcUFUaHWXntSnqKdCA.png" />
+      <S.ListsContainer>
+        <EpisodesList />
+      </S.ListsContainer>
+    </S.Container>
+  );
 };
 
 export default Home;
