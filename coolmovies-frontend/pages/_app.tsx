@@ -1,9 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Head from "next/head";
-import { EnhancedStore } from "@reduxjs/toolkit";
-
 
 import { Provider } from "react-redux";
 

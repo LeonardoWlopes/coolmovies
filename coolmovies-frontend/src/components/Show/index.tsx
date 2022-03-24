@@ -13,7 +13,7 @@ function Show({ showData }: props) {
   const router = useRouter();
 
   function moveToShowDetails() {
-    router.push(`/show/${showData.nodeId}`);
+    router.push(`/reviews/${showData.id}`);
   }
 
   return (

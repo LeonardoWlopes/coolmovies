@@ -1,10 +1,4 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -13,27 +7,73 @@ const client = new ApolloClient({
 
 export const fetchAllMovies = async () => {
   const allMovies = await client.query({
-    query: getAllMoviesQuery,
+    query: gql`
+      query AllMovies {
+        allMovies {
+          nodes {
+            id
+            imgUrl
+            title
+            releaseDate
+            nodeId
+            userByUserCreatorId {
+              id
+              name
+              nodeId
+            }
+          }
+        }
+      }
+    `,
   });
 
   return allMovies;
 };
 
-const getAllMoviesQuery = gql`
-  query AllMovies {
-    allMovies {
-      nodes {
+export const movieById = async (id: string) => {
+  const movie = await client.query({
+    query: gql`
+    query movieById {
+      movieById(id: "${id}") {
         id
         imgUrl
         title
         releaseDate
-        nodeId
-        userByUserCreatorId {
+          nodeId
+          movieReviewsByMovieId {
+            edges {
+              node {
+                id
+                userByUserReviewerId {
+                  id
+                  name
+                }
+                body
+                title
+                rating
+              }
+            }
+          }
+        }
+      }
+      `,
+  });
+
+  return movie;
+};
+
+export const userLogin = async () => {
+  const userInfo = await client.query({
+    query: gql`
+      query currentUser {
+        currentUser {
           id
           name
           nodeId
         }
       }
-    }
-  }
-`;
+    `,
+  });
+
+  return userInfo;
+};
