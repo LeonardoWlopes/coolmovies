@@ -15,6 +15,7 @@ export const TitleContainer = sty("div")({
   display: "flex",
   alignItems: "center",
   color: "#ffff",
+  padding: "0px 24px",
 });
 
 export const Title = sty("h2")({

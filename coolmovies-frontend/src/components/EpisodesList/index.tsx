@@ -6,9 +6,15 @@ import Show from "../Show";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-function EpisodesList() {
-  const item = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+//types
+import { IShow } from "../../../interfaces/shows.interface";
 
+type props = {
+  shows: IShow[];
+  title: string;
+};
+
+function EpisodesList({ shows, title }: props) {
   const slider = useRef<HTMLDivElement>(null);
 
   function handleMoveSlider(direction: string) {
@@ -24,15 +30,13 @@ function EpisodesList() {
   return (
     <S.Container>
       <S.TitleContainer>
-        <S.Title>title</S.Title>
+        <S.Title>{title}</S.Title>
       </S.TitleContainer>
       <S.ShowsContainer ref={slider}>
         <S.LeftIconContainer>
           <ChevronLeftIcon onClick={() => handleMoveSlider("left")} />
         </S.LeftIconContainer>
-        {item.map((item) => (
-          <Show />
-        ))}
+        {!!shows && shows.map((show) => <Show key={show.nodeId} showData={show} />)}
         <S.RightIconContainer>
           <ChevronRightIcon onClick={() => handleMoveSlider("right")} />
         </S.RightIconContainer>
