@@ -27,6 +27,8 @@ export const fetchAllMovies = async () => {
     `,
   });
 
+  console.log(allMovies);
+
   return allMovies;
 };
 
@@ -44,6 +46,7 @@ export const movieById = async (id: string) => {
             edges {
               node {
                 id
+                nodeId
                 userByUserReviewerId {
                   id
                   name
@@ -76,4 +79,39 @@ export const userLogin = async () => {
   });
 
   return userInfo;
+};
+
+export const DeleteComment = async (id: string) => {
+  const deleteComment = await client.mutate({
+    mutation: gql`
+      mutation {
+        deleteMovieReviewById(input: { id: "${id}", clientMutationId: "${id}" }) {
+          clientMutationId
+          deletedMovieReviewId
+        }
+      }
+    `,
+  });
+
+  return deleteComment;
+};
+
+export const UpdateComment = async (id: string, comment: string) => {
+  const updateComment = await client.mutate({
+    mutation: gql`
+      mutation {
+        updateMovieReview(
+          input: {
+            nodeId: "${id}"
+            movieReviewPatch: { body: "${comment}" }
+            clientMutationId: "${id}"
+          }
+        ) {
+          clientMutationId
+        }
+      }
+    `,
+  });
+
+  return updateComment;
 };

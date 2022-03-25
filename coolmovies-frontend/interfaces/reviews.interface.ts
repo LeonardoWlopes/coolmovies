@@ -9,6 +9,7 @@ export interface IReview {
   body: string;
   title: string;
   rating: string;
+  nodeId: string;
 }
 
 interface Edge {

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -10,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-  width: 50%;
+  width: 40%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,4 +41,14 @@ export const Reviews = styled.div`
   box-sizing: border-box;
   padding: 100px 0px;
   overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 1px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
 `;

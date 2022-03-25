@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 //Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAllMoviesSuccess,
   userLoginSuccess,
@@ -21,15 +21,19 @@ type props = {
 function Layout({ children }: props) {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetchAllMovies().then((res) => {
-      dispatch(fetchAllMoviesSuccess(res.data.allMovies.nodes));
-    });
+  const store = useSelector((state: any) => state.mainReducer);
 
-    userLogin().then((res) => {
-      dispatch(userLoginSuccess(res.data.currentUser));
-    });
-  }, [dispatch]);
+  useEffect(() => {
+    !store.movieList &&
+      fetchAllMovies().then((res) => {
+        dispatch(fetchAllMoviesSuccess(res.data.allMovies.nodes));
+      });
+
+    !store.user &&
+      userLogin().then((res) => {
+        dispatch(userLoginSuccess(res.data.currentUser));
+      });
+  }, [dispatch, store.movieList, store.user]);
 
   return (
     <>
