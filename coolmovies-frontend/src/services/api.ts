@@ -115,3 +115,44 @@ export const UpdateComment = async (id: string, comment: string) => {
 
   return updateComment;
 };
+
+export const CreateMovieReview = async (
+  title: string,
+  body: string,
+  rating: number,
+  movieId: string,
+  userId: string
+) => {
+  const createMovieReview = await client.mutate({
+    mutation: gql`
+      mutation {
+        createMovieReview(
+          input: {
+            movieReview: {
+              title: "${title}"
+              body: "${body}"
+              rating: ${rating}
+              movieId: "${movieId}"
+              userReviewerId: "${userId}"
+            }
+          }
+        ) {
+          movieReview {
+            id
+            title
+            body
+            rating
+            movieByMovieId {
+              title
+            }
+            userByUserReviewerId {
+              name
+            }
+          }
+        }
+      }
+    `,
+  });
+
+  return createMovieReview;
+};

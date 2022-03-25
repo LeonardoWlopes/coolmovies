@@ -7,8 +7,6 @@ import { IReview } from "../../../interfaces/reviews.interface";
 //redux
 import { useSelector } from "react-redux";
 
-//component
-import { ToastContainer, toast } from "react-toastify";
 //icons
 import StarIcon from "@mui/icons-material/Star";
 import SendIcon from "@mui/icons-material/Send";
@@ -51,7 +49,9 @@ function Review({ data }: props) {
   return (
     <S.Container style={{ display: showComment }}>
       <S.Header>
-        <span>{data.userByUserReviewerId.name}</span>
+        <span>
+          {data.title} - {data.userByUserReviewerId.name}
+        </span>
         <div>
           <span>{data.rating}</span>
           <StarIcon />
