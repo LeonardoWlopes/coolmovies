@@ -5,8 +5,6 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-console.log("0", process.env.REACT_APP_GRAPHQL_URL);
-
 export const fetchAllMovies = async () => {
   const allMovies = await client.query({
     query: gql`

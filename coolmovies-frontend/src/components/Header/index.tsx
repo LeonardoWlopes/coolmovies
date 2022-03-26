@@ -3,9 +3,6 @@ import * as S from "./styles";
 
 import { useRouter } from "next/router";
 
-//icons
-import { Search, Notifications } from "@mui/icons-material";
-
 //components
 import Image from "next/image";
 
@@ -28,10 +25,6 @@ function Header() {
             <li onClick={moveToHome}>Home</li>
           </ul>
         </S.Nav>
-      </div>
-      <div>
-        <Search />
-        <Notifications />
       </div>
     </S.Header>
   );

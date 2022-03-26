@@ -1,27 +1,43 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: row;
   padding: 0px 50px;
+
+  @media screen and (max-width: 1160px) {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
 `;
 
 export const ImgContainer = styled.div`
   width: 40%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 1160px) {
+    height: auto;
+    width: 100vw;
+    padding-top: 100px;
+  }
 `;
 
 export const Img = styled.img`
-  height: 100%;
+  height: auto;
   max-height: 650px;
   margin: auto;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
+
+  @media screen and (max-width: 400px) {
+    max-width: 265px;
+  }
 `;
 
 export const ReviewsContainer = styled.div`
@@ -32,6 +48,10 @@ export const ReviewsContainer = styled.div`
   box-sizing: border-box;
   padding: 100px 0px;
   overflow: auto;
+
+  @media screen and (max-width: 1160px) {
+    width: 100%;
+  }
 `;
 
 export const Reviews = styled.div`
@@ -54,7 +74,8 @@ export const Reviews = styled.div`
 `;
 
 export const AddContainer = styled.div`
-  width: 370px;
+  width: 100%;
+  max-width: 370px;
   height: 100px;
   margin: auto;
   border-radius: 15px;
@@ -67,6 +88,12 @@ export const AddContainer = styled.div`
   text-transform: uppercase;
   cursor: pointer;
   margin-bottom: 12px;
+
+  @media screen and (max-width: 1160px) {
+    flex-direction: column;
+    height: auto;
+    margin: 50px auto;
+  }
 
   :active {
     opacity: 0.8;
