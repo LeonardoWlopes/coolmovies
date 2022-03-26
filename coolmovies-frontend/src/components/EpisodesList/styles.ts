@@ -39,8 +39,9 @@ export const LeftIconContainer = styled.div`
   align-items: center;
   display: flex;
   left: 0;
-  position: sticky;
+  position: absolute;
   transition: 0.2s;
+
   opacity: 0;
 
   :hover {
@@ -66,8 +67,9 @@ export const RightIconContainer = styled.div`
   align-items: center;
   display: flex;
   right: 0;
-  position: sticky;
+  position: absolute;
   transition: 0.2s;
+
   opacity: 0;
 
   :hover {

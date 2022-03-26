@@ -4,7 +4,6 @@ export const Container = styled("div")({
   width: "165px",
   height: "295px",
   margin: "0px 5px",
-  background: "green",
   boxSizing: "border-box",
 });
 

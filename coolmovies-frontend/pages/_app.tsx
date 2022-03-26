@@ -1,13 +1,16 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
 import React, { FC } from "react";
-import Head from "next/head";
 
+//redux
+import store from "../redux/store";
 import { Provider } from "react-redux";
 
 //components
 import { Layout } from "../src/components/Layout";
-import store from "../redux/store";
+import Head from "next/head";
+
+//types
+import type { AppProps } from "next/app";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (

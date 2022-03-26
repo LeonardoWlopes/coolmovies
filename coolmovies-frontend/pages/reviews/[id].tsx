@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import * as S from "../../styles/reviews";
-
-import { movieById } from "../../src/services/api";
-import { IReviews } from "../../interfaces/reviews.interface";
-import { Review } from "../../src/components/Review";
 import { useRouter } from "next/router";
+
+//api
+import { movieById } from "../../src/services/api";
+
+//types
+import { IReviews } from "../../interfaces/reviews.interface";
+
+//components
+import { Review } from "../../src/components/Review";
+import Head from "next/head";
 
 //icons
 import AddIcon from "@mui/icons-material/Add";
@@ -19,7 +25,7 @@ export default function Reviews() {
   useEffect(() => {
     movieById(window.location.pathname.split("/")[2])
       .then((res) => setMovieData(res.data.movieById))
-      .catch((err) => {
+      .catch(() => {
         router.push("/");
       });
   }, [router]);
@@ -34,6 +40,9 @@ export default function Reviews() {
 
   return (
     <>
+      <Head>
+        <link rel="shortcut icon" href="/edit.ico" />
+      </Head>
       {modalOpen && (
         <AddReviewModal movieId={movieData.id} setModalOpen={setModalOpen} />
       )}

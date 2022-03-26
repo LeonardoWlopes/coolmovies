@@ -27,8 +27,6 @@ export const fetchAllMovies = async () => {
     `,
   });
 
-  console.log(allMovies);
-
   return allMovies;
 };
 

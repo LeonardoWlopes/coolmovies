@@ -1,8 +1,10 @@
-import React, { memo, MutableRefObject, useRef } from "react";
+import React, { memo, useRef } from "react";
 import * as S from "./styles";
 
 //components
 import Show from "../Show";
+
+//icons
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -36,7 +38,8 @@ function EpisodesList({ shows, title }: props) {
         <S.LeftIconContainer>
           <ChevronLeftIcon onClick={() => handleMoveSlider("left")} />
         </S.LeftIconContainer>
-        {!!shows && shows.map((show) => <Show key={show.nodeId} showData={show} />)}
+        {!!shows &&
+          shows.map((show) => <Show key={show.nodeId} showData={show} />)}
         <S.RightIconContainer>
           <ChevronRightIcon onClick={() => handleMoveSlider("right")} />
         </S.RightIconContainer>
