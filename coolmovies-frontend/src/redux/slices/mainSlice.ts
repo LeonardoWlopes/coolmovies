@@ -9,14 +9,10 @@ export const mainSlice = createSlice({
 
   reducers: {
     fetchAllMoviesSuccess: (state, action) => {
-      console.log(action.payload);
-
       state.movieList = action.payload;
     },
 
     userLoginSuccess: (state, action) => {
-      console.log(action.payload);
-
       state.user = action.payload;
     },
   },

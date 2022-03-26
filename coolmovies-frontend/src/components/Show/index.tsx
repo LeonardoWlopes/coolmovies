@@ -3,7 +3,7 @@ import * as S from "./styles";
 import { useRouter } from "next/router";
 
 //types
-import { IShow } from "../../../interfaces/shows.interface";
+import { IShow } from "../../interfaces/shows.interface";
 
 type props = {
   showData: IShow;

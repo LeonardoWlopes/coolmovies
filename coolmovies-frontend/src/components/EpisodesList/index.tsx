@@ -9,7 +9,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 //types
-import { IShow } from "../../../interfaces/shows.interface";
+import { IShow } from "../../interfaces/shows.interface";
 
 type props = {
   shows: IShow[];

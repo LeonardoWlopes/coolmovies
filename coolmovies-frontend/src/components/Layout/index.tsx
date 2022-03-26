@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAllMoviesSuccess,
   userLoginSuccess,
-} from "../../../redux/slices/mainSlice";
+} from "../../redux/slices/mainSlice";
 
 //API
 import { fetchAllMovies, userLogin } from "../../services/api";

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import * as S from "./styles";
 
 //interface
-import { IReview } from "../../../interfaces/reviews.interface";
+import { IReview } from "../../interfaces/reviews.interface";
 
 //redux
 import { useSelector } from "react-redux";
@@ -13,8 +13,6 @@ import SendIcon from "@mui/icons-material/Send";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { UpdateComment, DeleteComment } from "../../services/api";
-
-import Head from "next/head";
 
 interface props {
   data: IReview;
@@ -49,42 +47,35 @@ function Review({ data }: props) {
   const userMadeThisReview = user?.id === data.userByUserReviewerId.id;
 
   return (
-    <>
-      {comment !== oldComment && (
-        <Head>
-          <link rel="shortcut icon" href="/edit.ico" />
-        </Head>
+    <S.Container style={{ display: showComment }}>
+      <S.Header>
+        <span>
+          {data.title} - {data.userByUserReviewerId.name}
+        </span>
+        <div>
+          <span>{data.rating}</span>
+          <StarIcon />
+        </div>
+      </S.Header>
+      <S.Body>
+        <S.TextArea
+          ref={inputRef}
+          value={comment}
+          disabled={!userMadeThisReview}
+          onChange={(e) => setComment(e.target.value)}
+        />
+      </S.Body>
+      {userMadeThisReview && (
+        <S.IconContainer>
+          <DeleteIcon onClick={handleDeleteComment} />
+          {comment !== oldComment ? (
+            <SendIcon onClick={handleEditReview} />
+          ) : (
+            <EditIcon onClick={handleFocusComment} />
+          )}
+        </S.IconContainer>
       )}
-      <S.Container style={{ display: showComment }}>
-        <S.Header>
-          <span>
-            {data.title} - {data.userByUserReviewerId.name}
-          </span>
-          <div>
-            <span>{data.rating}</span>
-            <StarIcon />
-          </div>
-        </S.Header>
-        <S.Body>
-          <S.TextArea
-            ref={inputRef}
-            value={comment}
-            disabled={!userMadeThisReview}
-            onChange={(e) => setComment(e.target.value)}
-          />
-        </S.Body>
-        {userMadeThisReview && (
-          <S.IconContainer>
-            <DeleteIcon onClick={handleDeleteComment} />
-            {comment !== oldComment ? (
-              <SendIcon onClick={handleEditReview} />
-            ) : (
-              <EditIcon onClick={handleFocusComment} />
-            )}
-          </S.IconContainer>
-        )}
-      </S.Container>
-    </>
+    </S.Container>
   );
 }
 

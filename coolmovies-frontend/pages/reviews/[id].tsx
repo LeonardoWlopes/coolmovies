@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import * as S from "../../styles/reviews";
+import * as S from "../../src/styles/reviews";
 import { useRouter } from "next/router";
 
 //api
 import { movieById } from "../../src/services/api";
 
 //types
-import { IReviews } from "../../interfaces/reviews.interface";
+import { IReviews } from "../../src/interfaces/reviews.interface";
 
 //components
 import { Review } from "../../src/components/Review";

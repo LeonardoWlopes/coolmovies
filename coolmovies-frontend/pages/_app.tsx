@@ -1,8 +1,8 @@
-import "../styles/globals.css";
+import "../src/styles/globals.css";
 import React, { FC } from "react";
 
 //redux
-import store from "../redux/store";
+import store from "../src/redux/store";
 import { Provider } from "react-redux";
 
 //components
