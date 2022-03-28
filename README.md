@@ -1,43 +1,39 @@
-- [Introduction: Coolmovies challenge](#introduction-coolmovies-challenge)
-- [Web version challenge](#web-version-challenge)
-- [Mobile version challenge](#mobile-version-challenge)
-  - [Requirements](#requirements)
-  - [Running the server](#running-the-server)
-  - [Play around with some examples](#play-around-with-some-examples)
-  - [Reinitializing the database with seed data](#reinitializing-the-database-with-seed-data)
+# Coolmovies project
 
-# Introduction: Coolmovies challenge
+_The challenge requires `coolmovies-backend` running. Check it out below._
 
-Both challenges (web and mobile) requires `coolmovies-backend` running. Check it out below.
+## Developer comments
 
-**Please do not push directly to this repo to submit your work, either submit a fork of this or create a new repo from a clone of this manually and submit that**
+Hello, Hope you like project.
+I apologize in advance for the **UI**, prototyping websites really isn't my strong point, normally I usually work with a **Figma** or **Adobe XD** made by a designer.
 
-**Please work on this project like you would your normal job. We don't want to see mono-commits and for your commit history to be "First Commit" -> "Project Finished". "First Commit" -> "Add component" -> "Add component" -> "Editing of reviews" -> ... is preferred.**
+### About graphQL and Redux
 
-# Web version challenge
+This was my first project using **graphQL** So maybe I didn't use the best techniques in this part of the code, the same goes for **Redux**, I usually choose to use React's own **ContextAPI** for being faster and straight to the point.
 
-Please take a look at the README inside of `coolmovies-frontend` for the details.
-
-# Mobile version challenge
-
-Please take a look at the README inside of `coolmovies-mobile` for the details.
+If you want to know more about me, you can visit my [Github](https://github.com/LeonardoWlopes)
 
 ## Requirements
 
 - Docker, a recent version (>= 20)
+
 - Docker Compose (one compatible with above docker)
+
 - Your local ports 5432 and 5001 are free (not running another postgres server, for instance)
 
 You need docker and docker compose installed on your machine. It supports Linux, MacOS and Windows.
 
 If it's your first time, you can follow the official instructions:
+
 https://docs.docker.com/desktop/
+
 https://docs.docker.com/compose/install/
 
 ## Running the server
 
-    cd coolmovies-backend
-    docker-compose up
+cd coolmovies-backend
+
+docker-compose up
 
 Wait for a log message like this: `PostGraphile v4.12.3 server listening on port 5000` (just keep in mind that we are going to use port 5001)
 
@@ -61,14 +57,17 @@ So you were playing with the mutations and deleted something you shouldn't, no p
 
 Go to the `coolmovies-backend` folder using your preferred terminal, then:
 
-    docker-compose down
-    docker volume rm coolmovies-backend_db
-    docker rmi coolmovies-db:latest
-    docker-compose up
+docker-compose down
+
+docker volume rm coolmovies-backend_db
+
+docker rmi coolmovies-db:latest
+
+docker-compose up
 
 If you want also to rebuild the Postgraphile Server, run this before the `up` command.
 
-    docker rmi coolmovies-graphql:**latest**
+docker rmi coolmovies-graphql:**latest**
 
 Good luck and have fun!
 
